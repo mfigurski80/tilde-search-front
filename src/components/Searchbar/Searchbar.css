@@ -3,15 +3,14 @@
     display: flex;
     background: white;
 }
-input {
+.Searchbar_input {
     flex-grow: 1;
     padding: 14px;
     border-radius: 0;
     border: none;
     background: inherit;
 }
-button {
-    background: inherit;
-    border: none;
+.Searchbar_button {
+    background: red;
     padding: 10px;
 }
