@@ -1,7 +1,11 @@
 import React from 'react';
+import './index.css'
 
-export default function Searchbar() {
+export default function Searchbar({ onSearch }) {
 	return (
-		<div className='Searchbar'>Searchbar Component</div>
+		<form className='Searchbar' onSubmit={onSearch}>
+			<input />
+			<button type='submit'>Search</button>
+		</form>
 	)
 }

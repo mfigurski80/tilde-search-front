@@ -1,0 +1,17 @@
+.Searchbar {
+    width: 100%;
+    display: flex;
+    background: white;
+}
+input {
+    flex-grow: 1;
+    padding: 14px;
+    border-radius: 0;
+    border: none;
+    background: inherit;
+}
+button {
+    background: inherit;
+    border: none;
+    padding: 10px;
+}
