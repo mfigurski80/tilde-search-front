@@ -1,7 +1,7 @@
 import React from 'react';
 
-export default function Result({ id, url }) {
+export default function Result({ id, url, score }) {
 	return (
-		<p>{url}</p>
+		<p>{score}: <a href={`http://tilde.club/${url}`}>{url}</a></p>
 	)
 }
