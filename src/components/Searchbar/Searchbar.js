@@ -1,15 +1,18 @@
 import React, { useRef } from 'react';
 import './Searchbar.css'
 
-import Button from '../Button'
-
 export default function Searchbar({ onSearch }) {
 	const input_elem = useRef()
 
+	const handleSearch = (e) => {
+		e.preventDefault()
+		console.log(input_elem.current.value)
+	}
+
 	return (
-		<form className='Searchbar' onSubmit={onSearch}>
+		<form className='Searchbar' onSubmit={handleSearch}>
 			<input className='Searchbar_input' ref={input_elem} type='text' />
-			<Button className='Searchbar_button'>Search...</Button>
+			<button className='Searchbar_button' type='submit'>Search</button>
 		</form>
 	)
 }

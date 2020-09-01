@@ -1,13 +1,22 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 
-import Result from './components/Result'
 import Searchbar from './components/Searchbar'
+import getDictionary from './dictionary'
+
 
 function App() {
+	const [{data, isLoading}, setState] = useState({data: {}, isLoading: false});
+
+	useEffect(() => {
+		setState({data, isLoading: true})
+		getDictionary()
+			.then(res => setState({data: res, isLoading: false}));
+	}, []);
+
 	return (
 		<div className="App">
 			<p>App Component</p>
-			<Result id={0} result={{ title: "result",url: "eh", score: 2 }}/>
+			<p>Loading? {String(isLoading)}</p>
 			<Searchbar />
     	</div>
 	);
