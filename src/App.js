@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 
 import Searchbar from './components/Searchbar'
-import Button from './components/Button'
+import ResultFilter from './components/ResultFilter'
 import getDictionary from './dictionary'
 
 
@@ -28,6 +28,9 @@ function App() {
 			<h2>Search Engine for the tilde.club Domain</h2>
 			<p>Data loading...{isLoading ? null : 'Done'}</p>
 			<p>Search query...{query}</p>
+			{ query && dict ? (
+				<ResultFilter query={query} dict={dict}/>
+			) : null }
     	</div>
 	);
 }

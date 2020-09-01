@@ -1,7 +1,7 @@
 import React from 'react';
 
-export default function Result({ id, result: {title, url, score} }) {
+export default function Result({ id, url }) {
 	return (
-		<p>Result Component</p>
+		<p>{url}</p>
 	)
 }
