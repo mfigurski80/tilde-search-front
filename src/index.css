@@ -7,4 +7,44 @@
 body {
 	font-family: monospace;
 	background: #222;
+	color: #eee;
+}
+
+
+/* General Styling Components */
+
+.container {
+	max-width: 700px;
+	margin: auto;
+	padding: 10px;
+}
+.highlightable:hover {
+	color: #222;	
+	background: #eee;
+}
+
+
+/* Text Styling Reset */
+h1, h2, h3, h4, h5, h6, p, a {
+	font-size: 16px;
+	line-height: 22px;
+	color: #eee;
+}
+h1:before {
+	content: "# ";
+	margin-left: -18px;
+}
+h2:before {
+	content: "## ";
+	margin-left: -27px;
+}
+h3:before {
+	content: "### ";
+	margin-left: -36px;
+}
+h1, h2, h3 {
+	padding: 22px 0;
+}
+h1 {
+	text-transform: uppercase;
 }

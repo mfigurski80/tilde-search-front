@@ -1,21 +1,22 @@
 .Searchbar {
-    width: 100%;
-    display: flex;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 100%;
+	padding: 22px 0;
 }
 .Searchbar_input {
-    flex-grow: 0;
+	/* flex-grow: 1; */
+	min-width: 300px;
+	padding: 8px;
     border-radius: 0;
     border: none;
-    border-bottom: 1px solid white;
+    border-bottom: 1px solid #eee;
     background: inherit;
-    font-family: monospace;
-    color: white;
+    font-family: inherit;
+	font-weight: bold;
+    color: #f5ed5b;
 }
-.Searchbar_input:before {
+input:before {
     content: "$";
-}
-.Searchbar_button {
-    background: transparent;
-    padding: 10px;
-    border: none;
 }
