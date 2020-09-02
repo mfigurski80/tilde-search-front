@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Route, useHistory } from 'react-router-dom';
 
 import Searchbar from './components/Searchbar'
 import ResultFilter from './components/ResultFilter'
@@ -6,6 +7,7 @@ import { getDictionary, getMetadata } from './getData'
 
 
 function App() {
+	const history = useHistory();
 	const [{ dict, isDictLoading, isDictFailed }, setDict] = useState({
 		dict: {},
 		isDictLoading: false,
@@ -16,7 +18,6 @@ function App() {
 		isDictLoading: false,
 		isDictFailed: false
 	})
-	const [query, setQuery] = useState('')
 
 	useEffect(() => {
 		setDict({ dict, isDictLoading: true, isDictFailed: false })
@@ -31,19 +32,23 @@ function App() {
 	}, []);
 
 
+	const handleSearch = s => {
+		history.push(`/search/${s}`)
+	}
+
 	return (
 		<div className="App container">
 
 			<h1>~~~ Tilde Search ~~~ a search engine for tilde.club domains</h1>
-			<Searchbar onSearch={setQuery} />
+			<Searchbar onSearch={handleSearch} />
 
 			<h2>Events</h2>
 			<p>Tag Data loading...{isDictLoading ? null : (isDictFailed ? 'FAILED' : 'Done')}</p>
 			<p>Meta Data loading...{isMetaLoading ? null : (isMetaFailed ? 'FAILED' : 'Done')}</p>
 
-			{query && dict ? (
-				<ResultFilter query={query} dict={dict} />
-			) : null}
+			<Route path='/search/:searchquery' render={({ match: { params: { searchquery } } }) => (
+				<ResultFilter query={searchquery} dict={dict} />
+			)} />
 
 			<h2>About</h2>
 			<p>
