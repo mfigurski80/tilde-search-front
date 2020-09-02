@@ -1,7 +1,6 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import '@testing-library/jest-dom/extend-expect';
 
 import Searchbar from './Searchbar';
 
@@ -30,7 +29,7 @@ describe('Searchbar', () => {
 
 	it('calls onSearch callback handler', async () => {
 		const onSearch = jest.fn()
-		render(<Searchbar onSearch={onSearch}/>)
+		render(<Searchbar onSearch={onSearch} />)
 
 		await userEvent.type(screen.getByRole('textbox'), 'SEARCHTERM')
 		await userEvent.click(screen.getByRole('button'))
