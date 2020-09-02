@@ -30,16 +30,22 @@ function App() {
 	return (
 		<div className="App container">
 
-			<h1>~~~ Tilde Search ~~~</h1>
+			<h1>~~~ Tilde Search ~~~ a search engine for tilde.club domains</h1>
 			<Searchbar onSearch={handleSearch} />
 
-			<h2>Search Engine for the tilde.club Domain</h2>
+			<h2>Events</h2>
 			<p>Data loading...{isFailed ? 'FAILED' : (isLoading ? null : 'Done')}</p>
 
 			{ query && dict ? (
 				<ResultFilter query={query} dict={dict}/>
 			) : null }
 
+			<h2>About</h2>
+			<p>
+				Lovingly created by <a href='http://tilde.club/~mikofigs'>~mikofigs</a> with
+				ReactJS and Python.
+				See his other work at <a href='http://meeksfigs.surge.sh'>meeksfigs.surge.sh</a>
+			</p>
     	</div>
 	);
 }
