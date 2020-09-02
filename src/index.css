@@ -14,9 +14,9 @@ body {
 /* General Styling Components */
 
 .container {
-	max-width: 700px;
+	max-width: 750px;
 	margin: auto;
-	padding: 10px;
+	padding: 40px;
 }
 .highlightable:hover {
 	color: #222;	
