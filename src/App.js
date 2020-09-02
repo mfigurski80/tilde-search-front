@@ -6,15 +6,21 @@ import getDictionary from './dictionary'
 
 
 function App() {
-	const [{dict, isLoading}, setState] = useState({dict: {}, isLoading: false});
+	const [{dict, isLoading, isFailed}, setState] = useState({
+		dict: {},
+		isLoading: false,
+		isFailed: false
+	});
 	const [query, setQuery] = useState('')
 
 	useEffect(() => {
-		setState({dict, isLoading: true})
+		setState({dict, isLoading: true, isFailed: false})
 		getDictionary()
-			.then(res => setState({dict: res, isLoading: false}));
+			.then(res => setState({dict: res, isLoading: false, isFailed: false}))
+			.catch(err => setState({dict: {}, isLoading: false, isFailed: true}));
 		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, []);
+
 
 	const handleSearch = s => {
 		console.log('Searching:', s)
@@ -23,14 +29,17 @@ function App() {
 
 	return (
 		<div className="App container">
+
 			<h1>~~~ Tilde Search ~~~</h1>
 			<Searchbar onSearch={handleSearch} />
+
 			<h2>Search Engine for the tilde.club Domain</h2>
-			<p>Data loading...{isLoading ? null : 'Done'}</p>
-			<p>Search query...{query}</p>
+			<p>Data loading...{isFailed ? 'FAILED' : (isLoading ? null : 'Done')}</p>
+
 			{ query && dict ? (
 				<ResultFilter query={query} dict={dict}/>
 			) : null }
+
     	</div>
 	);
 }
