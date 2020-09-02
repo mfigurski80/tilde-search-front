@@ -13,7 +13,7 @@ export default function Searchbar({ onSearch }) {
 
 	return (
 		<form className='Searchbar' onSubmit={handleSearch}>
-			<p>$</p>
+			<p className='Searchbar_prompt'>$</p>
 			<input
 				className='Searchbar_input'
 				ref={input_elem}

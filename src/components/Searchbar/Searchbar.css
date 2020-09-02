@@ -5,10 +5,14 @@
 	width: 100%;
 	padding: 22px 0;
 }
+.Searchbar_prompt {
+	margin-right: -12px;
+	margin-top: -2px;
+}
 .Searchbar_input {
 	/* flex-grow: 1; */
 	min-width: 300px;
-	padding: 8px;
+	padding: 8px 20px;
     border-radius: 0;
     border: none;
     border-bottom: 1px solid #eee;
@@ -16,7 +20,4 @@
     font-family: inherit;
 	font-weight: bold;
     color: #f5ed5b;
-}
-input:before {
-    content: "$";
 }

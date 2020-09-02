@@ -1,7 +1,14 @@
 import React from 'react';
 
+import './Result.css';
+
 export default function Result({ id, url, score }) {
 	return (
-		<p>{String(score).padEnd(7, '0')}: <a href={`http://tilde.club/${url}`}>{url}</a></p>
+		<div className='Result'>
+			<p>[{String(score).padEnd(7, '0')}]</p>
+			<a
+				href={`http://tilde.club/${url}`}
+			>{url}</a>
+		</div>
 	)
 }
