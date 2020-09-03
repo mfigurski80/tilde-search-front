@@ -41,14 +41,14 @@ function App() {
 
 
 	const handleSearch = s => {
-		if (s === '') return history.push('')
+		if (s === '') return history.push('./')
 		history.push(`?searchquery=${s.replace(' ', '-')}`)
 	}
 
 	return (
 		<div className="App container">
 
-			<h1>~~~ Tilde Search ~~~ a search engine for tilde.club domain</h1>
+			<h1>~~~ Tilde Search ~~~ search engine for tilde.club domain</h1>
 			<Searchbar onSearch={handleSearch} />
 
 			<FilterChooser onChoose={setActiveFilters} />
