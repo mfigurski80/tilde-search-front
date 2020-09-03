@@ -58,6 +58,7 @@ function App() {
 					query={query.get('searchquery').replace('-', ' ')}
 					dict={dict}
 					meta={meta}
+					activeFilters={activeFilters}
 				/>
 			) : null}
 

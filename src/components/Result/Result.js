@@ -5,7 +5,7 @@ import './Result.css';
 export default function Result({ id, url, score }) {
 	return (
 		<div className='Result'>
-			<p>[{String(score).padEnd(7, '0')}]</p>
+			<p>[{score.toFixed(4)}]</p>
 			<a
 				href={`http://tilde.club/${url}`}
 			>{url}</a>

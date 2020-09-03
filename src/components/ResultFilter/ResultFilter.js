@@ -3,12 +3,13 @@ import stem from 'stemmer';
 
 import Result from '../Result'
 
-export default function ResultFilter({ query, dict, meta }) {
+export default function ResultFilter({ query, dict, meta, activeFilters }) {
 	query = (query || '')
 	dict = (dict || {})
 
+	// pull out results dictionary
 	let results = {}
-	query.split().forEach(w => {
+	query.split(' ').forEach(w => {
 		w = stem(w.toLowerCase())
 		let res = dict[w] || {}
 		Object.keys(res).forEach(url => {
@@ -16,6 +17,14 @@ export default function ResultFilter({ query, dict, meta }) {
 		})
 	})
 
+
+	// apply active filters if possible
+	console.log(activeFilters.length)
+	if (activeFilters && meta) Object.keys(results).forEach(url => {
+		results[url] += activeFilters.reduce((total, f) => total + f.func(meta[url]), 0)
+	})
+
+	// sort, format results into {score, url}
 	const sortedResults = Object.keys(results)
 		.sort((a, b) => results[a] < results[b])
 		.map(url => ({ score: results[url], url: url }))
