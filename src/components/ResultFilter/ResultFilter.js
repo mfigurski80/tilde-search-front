@@ -31,7 +31,7 @@ export default function ResultFilter({ query, dict, meta, activeFilters }) {
 
 	return (
 		<div className='ResultFilter'>
-			<h2>Results for: {query}</h2>
+			<h2>Results for: {query} (count {sortedResults.length})</h2>
 			{sortedResults.map((res, i) => (
 				<Result key={i} {...res} />
 			))}
