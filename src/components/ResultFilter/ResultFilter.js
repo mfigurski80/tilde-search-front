@@ -19,7 +19,6 @@ export default function ResultFilter({ query, dict, meta, activeFilters }) {
 
 
 	// apply active filters if possible
-	console.log(activeFilters.length)
 	if (activeFilters && meta) Object.keys(results).forEach(url => {
 		results[url] += activeFilters.reduce((total, f) => total + f.func(meta[url]), 0)
 	})

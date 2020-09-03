@@ -23,16 +23,22 @@ describe('Checkbox', () => {
 		expect(screen.getByText(/LABEL/)).toBeInTheDocument()
 	})
 
+	it('can be checked by value input', () => {
+		render(<Checkbox value={true} />)
+
+		expect(screen.getByRole('checkbox')).toBeChecked()
+	})
+
 	it('calls callback function on click', async () => {
 		const fn = jest.fn()
-		render(<Checkbox label={'LABEL'} onClick={fn} />)
+		render(<Checkbox label={'LABEL'} value={false} onClick={fn} />)
 
 		expect(screen.getByRole('checkbox')).not.toBeChecked()
 
 		await userEvent.click(screen.getByRole('checkbox'))
-		await userEvent.click(screen.getByRole('checkbox'))
 
-		expect(fn).toHaveBeenCalledTimes(2)
+		expect(fn).toHaveBeenCalledTimes(1)
+		expect(fn).toHaveBeenCalledWith(true)
 	})
 
 });
