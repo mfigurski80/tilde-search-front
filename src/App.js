@@ -70,7 +70,10 @@ function App() {
 			<p>
 				Lovingly created by <a href='http://tilde.club/~mikofigs'>~mikofigs</a> with
 				ReactJS and Python.
-				See his other work at <a href='http://meeksfigs.surge.sh'>meeksfigs.surge.sh</a>
+				See his other work at <a href='http://meeksfigs.surge.sh'>meeksfigs.surge.sh</a>,
+				or view the project source on 
+				github <a href='https://github.com/mfigurski80/tilde-search-front'>here</a>,
+				and <a href='https://github.com/mfigurski80/tilde-search'>here</a>.
 			</p>
 		</div>
 	);
