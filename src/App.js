@@ -3,6 +3,7 @@ import { useHistory, useLocation } from 'react-router-dom';
 
 import Searchbar from './components/Searchbar'
 import ResultFilter from './components/ResultFilter'
+import FilterChooser from './components/FilterChooser'
 import { getDictionary, getMetadata } from './getData'
 
 
@@ -24,6 +25,7 @@ function App() {
 		isDictLoading: false,
 		isDictFailed: false
 	})
+	const [activeFilters, setActiveFilters] = useState([])
 
 	useEffect(() => {
 		setDict({ dict, isDictLoading: true, isDictFailed: false })
@@ -39,6 +41,7 @@ function App() {
 
 
 	const handleSearch = s => {
+		if (s === '') return history.push('')
 		history.push(`?searchquery=${s.replace(' ', '-')}`)
 	}
 
@@ -48,8 +51,14 @@ function App() {
 			<h1>~~~ Tilde Search ~~~ a search engine for tilde.club domain</h1>
 			<Searchbar onSearch={handleSearch} />
 
+			<FilterChooser onChoose={setActiveFilters} />
+
 			{(query.get('searchquery')) ? (
-				<ResultFilter query={query.get('searchquery').replace('-', ' ')} dict={dict} />
+				<ResultFilter
+					query={query.get('searchquery').replace('-', ' ')}
+					dict={dict}
+					meta={meta}
+				/>
 			) : null}
 
 			<h2>Debug/Events</h2>

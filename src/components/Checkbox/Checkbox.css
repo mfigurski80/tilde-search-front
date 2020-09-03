@@ -1,0 +1,54 @@
+.Checkbox {
+	background: transparent;
+	position: relative;
+	display: inline;
+}
+.Checkbox:hover {
+	background: #f5ed5b;
+	color: #222;
+}
+.Checkbox:hover *::before {
+	border-color: #222;
+}
+.Checkbox:hover *::after {
+	background: #222;
+}
+
+[type="checkbox"] {
+	position: absolute;
+	left: 0;
+	opacity: 0.01;
+}
+[type="checkbox"] + label {
+	position: relative;
+	padding-left: 28px;
+	padding-right: 6px;
+	cursor: pointer;
+}
+[type="checkbox"] + label::before {
+	content: '';
+	position: absolute;
+	left: 2px;
+	top: 0;
+	width: 16px;
+	height: 16px;
+	border: 1px solid #eee;
+	background: transparent;
+}
+[type="checkbox"] + label::after {
+	content: '';
+	position: absolute;
+	left: 6px;
+	top: 4px;
+	width: 10px;
+	height: 10px;
+	background: #f5ed5b;
+}
+[type="checkbox"]:not(:checked) + label::after {
+	opacity: 0;
+}
+
+/* Accessibility focus */
+[type="checkbox"]:focus + label::before {
+	box-shadow: inset 0 1px 3px rgba(0,0,0,.1), 0 0 0 4px #f5ed5b33;
+}

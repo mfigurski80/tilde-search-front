@@ -3,7 +3,7 @@ import stem from 'stemmer';
 
 import Result from '../Result'
 
-export default function ResultFilter({query, dict}) {
+export default function ResultFilter({ query, dict, meta }) {
 	query = (query || '')
 	dict = (dict || {})
 
@@ -15,10 +15,10 @@ export default function ResultFilter({query, dict}) {
 			results[url] = (results[url] || 0) + res[url]
 		})
 	})
-	
+
 	const sortedResults = Object.keys(results)
 		.sort((a, b) => results[a] < results[b])
-		.map(url => ({score: results[url], url: url}))
+		.map(url => ({ score: results[url], url: url }))
 
 	return (
 		<div className='ResultFilter'>

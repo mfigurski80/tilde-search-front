@@ -1,0 +1,8 @@
+.FilterChooser {
+
+}
+.FilterChooser_options {
+	display: flex;
+	justify-content: space-evenly;
+	flex-wrap: wrap;
+}
